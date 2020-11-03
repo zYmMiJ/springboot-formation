@@ -1,0 +1,14 @@
+@charset "ISO-8859-1"
+
+body {
+    padding-top: 6rem !important;
+}
+
+.starter-template {
+    padding: 6rem 1.5rem 0 0;
+    text-align: center;
+}
+
+h2 {
+    color: #FF0000 !important;
+}

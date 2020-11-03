@@ -1,0 +1,4 @@
+#start properties
+server:
+  port: 9090
+#end properties

@@ -1,0 +1,22 @@
+app:
+    compiler:
+        output-folder: /temp/
+        timeout: 5
+    error: /error/
+    menus:
+    -   name: Home
+        path: /
+        title: Home
+    -   name: Login
+        path: /login
+        title: Login
+email: vincent.time@paris.fr
+logging:
+    level:
+        com:
+            example:
+                exercice2spring: DEBUG
+        org:
+            springframework:
+                web: ERROR
+thread-pool: 20

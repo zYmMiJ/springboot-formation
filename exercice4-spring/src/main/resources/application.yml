@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    initialisation-mode : always # ???
+    url: jdbc:postgresql://localhost:5432/exercice4
+    username: test
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        data: INFO
+      nc:
+        opt:
+          formation:
+            exercice4spring:
+              persistence: DEBUG

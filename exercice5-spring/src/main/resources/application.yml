@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    river-class-name: org.postgresql.Driver
+    initialisation-mode: always
+    url: jdbc:postgresql://localhost:5432/jpa_db
+    username: test

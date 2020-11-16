@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commentary">
+            <h2><span jhiTranslate="exercice6App.commentary.detail.title">Commentary</span> {{ commentary.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="exercice6App.commentary.text">Text</span></dt>
+                <dd>
+                    <span>{{ commentary.text }}</span>
+                </dd>
+                <dt><span jhiTranslate="exercice6App.commentary.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{ commentary.creationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="exercice6App.commentary.messageCommentaries">Message Commentaries</span></dt>
+                <dd>
+                    <div *ngIf="commentary.messageCommentariesId">
+                        <a [routerLink]="['/message', commentary.messageCommentariesId, 'view']">{{ commentary.messageCommentariesId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commentary', commentary.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

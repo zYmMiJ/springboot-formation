@@ -38,7 +38,7 @@ public class Message implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "messages", allowSetters = true)
-    private User userMessages;
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -88,17 +88,17 @@ public class Message implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public User getUserMessages() {
-        return userMessages;
+    public User getUser() {
+        return user;
     }
 
-    public Message userMessages(User user) {
-        this.userMessages = user;
+    public Message user(User user) {
+        this.user = user;
         return this;
     }
 
     public void setUserMessages(User user) {
-        this.userMessages = user;
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

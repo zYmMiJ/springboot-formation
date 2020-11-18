@@ -35,7 +35,7 @@ public class Commentary implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "commentaries", allowSetters = true)
-    private Message messageCommentaries;
+    private Message message;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -73,16 +73,16 @@ public class Commentary implements Serializable {
     }
 
     public Message getMessageCommentaries() {
-        return messageCommentaries;
+        return message;
     }
 
     public Commentary messageCommentaries(Message message) {
-        this.messageCommentaries = message;
+        this.message = message;
         return this;
     }
 
     public void setMessageCommentaries(Message message) {
-        this.messageCommentaries = message;
+        this.message = message;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

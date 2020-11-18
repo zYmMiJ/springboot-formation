@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <examResult>
+        <date-of-birth>01/02/1985</date-of-birth>
+        <score>76.0</score>
+        <student-name>Ode Javel</student-name>
+    </examResult>
+    <examResult>
+        <date-of-birth>01/02/1970</date-of-birth>
+        <score>61.0</score>
+        <student-name>Jacques Sentu</student-name>
+    </examResult>
+    <examResult>
+        <date-of-birth>01/02/1993</date-of-birth>
+        <score>92.0</score>
+        <student-name>Maude Zarella</student-name>
+    </examResult>
+    <examResult>
+        <date-of-birth>01/02/1965</date-of-birth>
+        <score>83.0</score>
+        <student-name>Cecile OurKessa</student-name>
+    </examResult>
+</root>

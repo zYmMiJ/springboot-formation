@@ -2,6 +2,8 @@ package nc.opt.service;
 
 import nc.opt.domain.Message;
 import nc.opt.repository.MessageRepository;
+import nc.opt.service.dto.MessageDTO;
+import nc.opt.service.mapper.MessageMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,19 +25,24 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
 
-    public MessageService(MessageRepository messageRepository) {
+    private final MessageMapper messageMapper;
+
+    public MessageService(MessageRepository messageRepository, MessageMapper messageMapper) {
         this.messageRepository = messageRepository;
+        this.messageMapper = messageMapper;
     }
 
     /**
      * Save a message.
      *
-     * @param message the entity to save.
+     * @param messageDTO the entity to save.
      * @return the persisted entity.
      */
-    public Message save(Message message) {
-        log.debug("Request to save Message : {}", message);
-        return messageRepository.save(message);
+    public MessageDTO save(MessageDTO messageDTO) {
+        log.debug("Request to save Message : {}", messageDTO);
+        Message message = messageMapper.toEntity(messageDTO);
+        message = messageRepository.save(message);
+        return messageMapper.toDto(message);
     }
 
     /**

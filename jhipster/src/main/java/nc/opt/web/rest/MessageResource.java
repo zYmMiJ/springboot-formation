@@ -2,6 +2,7 @@ package nc.opt.web.rest;
 
 import nc.opt.domain.Message;
 import nc.opt.service.MessageService;
+import nc.opt.service.dto.MessageDTO;
 import nc.opt.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -52,12 +53,12 @@ public class MessageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/messages")
-    public ResponseEntity<Message> createMessage(@Valid @RequestBody Message message) throws URISyntaxException {
+    public ResponseEntity<MessageDTO> createMessage(@Valid @RequestBody MessageDTO message) throws URISyntaxException {
         log.debug("REST request to save Message : {}", message);
         if (message.getId() != null) {
             throw new BadRequestAlertException("A new message cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Message result = messageService.save(message);
+        MessageDTO result = messageService.save(message);
         return ResponseEntity.created(new URI("/api/messages/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -73,12 +74,12 @@ public class MessageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/messages")
-    public ResponseEntity<Message> updateMessage(@Valid @RequestBody Message message) throws URISyntaxException {
+    public ResponseEntity<MessageDTO> updateMessage(@Valid @RequestBody MessageDTO message) throws URISyntaxException {
         log.debug("REST request to update Message : {}", message);
         if (message.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Message result = messageService.save(message);
+        MessageDTO result = messageService.save(message);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, message.getId().toString()))
             .body(result);

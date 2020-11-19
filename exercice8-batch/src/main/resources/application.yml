@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+    name: public
+    schema: classpath:schema-postgresql.sql
+    url: jdbc:postgresql://localhost:5432/exercice8
+    username: exercice8
+  batch:
+    job:
+      enabled: false
+    initialize-schema: always
+
+server:
+  port: 9090

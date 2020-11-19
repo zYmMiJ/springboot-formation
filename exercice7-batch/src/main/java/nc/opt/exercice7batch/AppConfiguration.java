@@ -32,29 +32,29 @@ public class AppConfiguration {
     @Bean
 	public Job getJob() throws Exception {
 		return jobBF.get("exercice7")
-                    .listener(new ExamResultJobListener())
-					.start(getStep())
-					.build();
+			.listener(new ExamResultJobListener())
+			.start(getStep())
+			.build();
 	}
 
 	@Bean
 	public Step getStep() throws Exception {
 		return stepBF.get("step1")
-                      .<ExamResult, ExamResult>chunk(2)
-					  .reader(reader())
-                      .processor(new ExamResultItemProcessor())
-                      .writer(writer())
-				      .build();
+			.<ExamResult, ExamResult>chunk(2)
+			.reader(reader())
+			.processor(new ExamResultItemProcessor())
+			.writer(writer())
+			.build();
 	}
 
 	@Bean
 	public FlatFileItemReader<ExamResult> reader() {
         FlatFileItemReaderBuilder<ExamResult> builder = new FlatFileItemReaderBuilder<ExamResult>();
         return builder.name("flatFileItemReader")
-                .resource(new ClassPathResource("examResult.txt"))
-                .fieldSetMapper(new ExamResultFieldsSetMapper())
-                .lineTokenizer(new DelimitedLineTokenizer("|"))
-                .build();
+			.resource(new ClassPathResource("examResult.txt"))
+			.fieldSetMapper(new ExamResultFieldsSetMapper())
+			.lineTokenizer(new DelimitedLineTokenizer("|"))
+			.build();
     }
 
 	@Bean
@@ -63,9 +63,9 @@ public class AppConfiguration {
 		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 		marshaller.setClassesToBeBound(ExamResult.class);
 		return staxEventItemWriterBuilder.name("staxEventItemWriter")
-				.resource(new FileSystemResource("xml/examResult.xml"))
-				.marshaller(marshaller)
-				.encoding("UTF-8")
-				.build();
+			.resource(new FileSystemResource("xml/examResult.xml"))
+			.marshaller(marshaller)
+			.encoding("UTF-8")
+			.build();
     }
 }

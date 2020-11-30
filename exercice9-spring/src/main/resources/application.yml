@@ -1,0 +1,25 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        initialisation-mode: always
+        password: admin
+        url: jdbc:postgresql://localhost:5432/exercice9
+        username: postgres
+
+logging:
+    level:
+        root: INFO
+        org:
+            springframework:
+                data: INFO
+        nc:
+            sf2i:
+                formation:
+                    exercice9spring:
+                        model: DEBUG
+                        repository: INFO
+                        service: INFO
+                        controllers: INFO
+                        dto: INFO
+                        exceptions: DEBUG
+                        config: DEBUG
